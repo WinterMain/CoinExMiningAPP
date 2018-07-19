@@ -46,7 +46,5 @@ CET     | 0xb3fd1d1eb70586eac7612bf74c2d267034570fac
 
 ## 程序预览
 ![第一步：输入Secret Key](https://www.samyoc.com/uploads/users/98/images/1531896520142.png)
-
 ![第二步：挖矿配置](https://www.samyoc.com/uploads/users/98/images/1531896541980.png)
-
 ![第三步：点击开始，查看运行情况](https://www.samyoc.com/uploads/users/98/images/1531896558197.png)
