@@ -25,13 +25,6 @@ An Web APP for CoinEx mining. Beaty UI, easy to operate. What you need is only a
 
 - 设置了每秒卖出多少个CET后，程序会自动帮你在每隔多少秒之后**市价**卖出CET，如果不想程序自动卖，你设置为0就可以了。
 
-## 程序预览
-![第一步：输入Secret Key](https://www.samyoc.com/uploads/users/98/images/1531896520142.png)
-
-![第二步：挖矿配置](https://www.samyoc.com/uploads/users/98/images/1531896541980.png)
-
-![第三步：点击开始，查看运行情况](https://www.samyoc.com/uploads/users/98/images/1531896558197.png)
-
 ## 免责声明
 本程序供CoinEx爱好者学习交流使用，由本程序带来的收益和亏损与作者没有关系。
 
@@ -46,7 +39,14 @@ BCH     | 1GzmpmiTwLiiMS7rMR1koP91q7Q9KaQCi1
 CET     | 0xb3fd1d1eb70586eac7612bf74c2d267034570fac
 
 ### 更多信息
-[详细使用说明和交流区：https://www.samyoc.com/single/89](https://www.samyoc.com/single/89)
-[作者开发无需编译，直接下载，请点击或访问：https://www.samyoc.com/single/85](https://www.samyoc.com/single/85)
-[作者运营主站：https://www.samyoc.com](https://www.samyoc.com)
-[浏览器跨域指导：https://www.samyoc.com/single/86](https://www.samyoc.com/single/86)
+- [详细使用说明和交流区：https://www.samyoc.com/single/89](https://www.samyoc.com/single/89)
+- [作者开发无需编译，直接下载，请点击或访问：https://www.samyoc.com/single/85](https://www.samyoc.com/single/85)
+- [作者运营主站：https://www.samyoc.com](https://www.samyoc.com)
+- [浏览器跨域指导：https://www.samyoc.com/single/86](https://www.samyoc.com/single/86)
+
+## 程序预览
+![第一步：输入Secret Key](https://www.samyoc.com/uploads/users/98/images/1531896520142.png)
+
+![第二步：挖矿配置](https://www.samyoc.com/uploads/users/98/images/1531896541980.png)
+
+![第三步：点击开始，查看运行情况](https://www.samyoc.com/uploads/users/98/images/1531896558197.png)
