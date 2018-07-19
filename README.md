@@ -6,6 +6,7 @@ An Web APP for CoinEx mining. Beaty UI, easy to operate. What you need is only a
 ##使用说明
 - **本APP是WebAPP，直接点开文件，便可在浏览器中运行，但是浏览器需要跨域，推荐使用Chrome浏览器[浏览器跨域指导](https://www.samyoc.com/single/86)**
 - **请填写交易对，交易额度，风险控制栏目，再开始**
+- **找到config文件，填写的API秘钥的access_id和secret_key**
 - **APP供爱好CoinEx者交流使用**
 - **建议在不清楚的情况下关闭API提现，用的放心**
 
