@@ -9,6 +9,7 @@ An Web APP for CoinEx mining. Beaty UI, easy to operate. What you need is only a
 - **找到config文件，填写的API秘钥的access_id和secret_key**
 - **APP供爱好CoinEx者交流使用**
 - **建议在不清楚的情况下关闭API提现，用的放心**
+- **[编译包直接下载，请点击或访问作者主站](https://www.samyoc.com/single/85)**
 
 ## 交易对
 
