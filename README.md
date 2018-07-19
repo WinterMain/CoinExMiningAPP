@@ -41,8 +41,8 @@ An Web APP for CoinEx mining. Beaty UI, easy to operate. What you need is only a
 方式     | 地址
 --- | -----
 CoinEx站内转账 | admin@samyoc.com
-BTC    | 17LB9ZCzvbGDZzYoUV2RPTX3E88y7pxthi
-BCH     | 17LB9ZCzvbGDZzYoUV2RPTX3E88y7pxthi
+BTC    | 1GzmpmiTwLiiMS7rMR1koP91q7Q9KaQCi1
+BCH     | 1GzmpmiTwLiiMS7rMR1koP91q7Q9KaQCi1
 CET     | 0xb3fd1d1eb70586eac7612bf74c2d267034570fac
 
 ### 更多信息

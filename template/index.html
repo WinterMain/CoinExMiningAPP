@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SamYoc 有壳 - 交易挖矿</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_737578_sq3b2ad5i7.css">
+    <link rel="shortcut icon" href="http://www.samyoc.com/img/yoc.png" />
+
+    <!-- Start of Baidu Transcode -->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <!--         <meta name="mobile-agent" content="format=html5;url=http://localhost/"> -->
+    <!-- End of Baidu Transcode -->
+
+    <meta name="description" content="一个自由创作的空间，帮助你寻找答案，共享知识，挖掘你的潜能，一起YY人生...">
+    <meta name="keywords" content="有壳,山姆,有课啦,山姆有课啦,有课啦,YOC,Samyoc,创作,samyoc,有岑,sam,YLD,YOC网">
+    <meta name="apple-mobile-web-app-title" content="YOC">
+    <link rel="apple-touch-icon" href="http://www.samyoc.com/img/yoc.png" />
+    <meta property="og:type" content="image" />
+    <meta property="og:image" content="http://www.samyoc.com/img/yoc.png" />
+    <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: ubuntu, PingFangSC-regular, Helvetica Neue, Helvetica, Arial, Microsoft YaHei, Tahoma, sans-serif;
+            -webkit-overflow-scrolling: touch;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        }
+
+        p,
+        ul,
+        li,
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            outline: none;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            line-height: 20px;
+            height: 24px;
+            text-indent: 6px;
+            min-width: 60px;
+        }
+
+        .invisible {
+            opacity: 0;
+        }
+
+        .page-root {}
+
+        .head-info {
+            background-position: 20%;
+        }
+
+        .head-info .banner {
+            position: relative;
+            height: 380px;
+            background-color: #00a5e8;
+        }
+
+        .head-info .banner .banner-img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .blur-img img,
+        .blur-img .stage {
+
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        .blur-img .blur {
+            -webkit-filter: blur(5.3px);
+            -moz-filter: blur(5.3px);
+            -o-filter: blur(5.3px);
+            -ms-filter: blur(5.3px);
+            filter: blur(5.3px);
+        }
+
+        .blur-img .stage {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50%;
+        }
+
+        .flexshow {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .flex {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+
+        .align-items {
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+        }
+
+        .ld-nav {
+            position: fixed;
+            right: 0;
+            left: 0;
+            z-index: 99999 !important;
+            min-height: 50px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-top-width: 1px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            border-top-style: solid;
+            border-bottom-style: solid;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+            height: 56px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            top: 0;
+            background-color: #fff;
+            border-color: #f0f0f0;
+            border-top-color: rgb(240, 240, 240);
+            border-bottom-color: rgb(240, 240, 240);
+            border-width: 0 0 1px;
+            border-top-width: 0px;
+            border-bottom-width: 1px;
+            border-bottom: 1px solid rgba(30, 35, 42, .06);
+            -webkit-box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
+            box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
+            background-clip: content-box;
+            border-top: 3px solid #00a5e8;
+        }
+
+        .ld-nav .logo {
+            width: 130px;
+            min-width: 100px;
+            height: 55px;
+            background: url(https://www.samyoc.com/img/logo.png) center no-repeat;
+            background-position-x: center;
+            background-size: auto auto;
+            background-size: 100%;
+            outline: none;
+            background-position-x: 0;
+            margin-right: 20px;
+            margin-left: 40px;
+        }
+
+        .ld-nav .nav-item {
+            line-height: 55px;
+            padding: 0 12px;
+            color: #666;
+            font-size: 16px;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .ld-nav .nav-item.active {
+            color: #00a5e8;
+        }
+
+        .web-title {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-weight: 300;
+            color: #fff;
+            font-family: fantasy;
+        }
+
+        .main {
+            /* background-color: #fff;
+            box-shadow: 0px 0px 20px #bbbbbb; */
+            min-height: 300px;
+            z-index: 99999 !important;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+        }
+
+        .bg-gray {
+            background-color: #f5f5f5;
+        }
+
+        .setting {}
+        .hide {
+            display: none;
+        }
+
+        .part {
+            box-shadow: 0px 0px 6px 0px #bbbbbb;
+            margin: 20px 10px;
+            border-radius: 10px;
+            background-color: #fff;
+            overflow: hidden;
+            width: 200px;
+            height: 250px;
+            min-width: 193px;
+        }
+
+        .part .title {
+            color: #333;
+            font-size: 16px;
+            font-weight: 300;
+            text-align: center;
+            margin: 10px 0;
+            background-color: #00a5e8;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .part .field {
+            margin: 20px;
+        }
+
+        .center-part {
+            margin-top: 130px;
+        }
+
+        .center-part .title {
+            color: #FFF;
+            text-align: center;
+            font-weight: 100;
+        }
+
+        .label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .sublabel {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .value {
+            color: #333;
+        }
+
+        .begin-area {
+            text-align: center;
+            box-shadow: 0px 0px 6px 0px #bbbbbb;
+            width: 200px;
+            height: 100%;
+            border-radius: 20px;
+            background: #ffffff;
+        }
+
+        .begin-area .icon-xiangxiajixu {
+            font-size: 60px;
+            color: orange;
+
+        }
+
+        .btn-begin {
+            color: white;
+            background-color: #00a4e8;
+            font-size: 30px;
+            outline: none;
+            height: 100px;
+            margin-top: 30px;
+            border-radius: 50%;
+            width: 100px;
+            box-shadow: 0 0 20px 0 #00a4e8;
+            border: 2px solid #00a4e8;
+            cursor: pointer;
+        }
+
+        .btn-stop {
+            background-color: #e82300;
+            box-shadow: 0 0 20px 0 #e82300;
+            border: 2px solid #e82300;
+        }
+
+        #inputSellCet,
+        #inputSellCetInter,
+        #inputMining {
+            width: 60px;
+            min-width: 60px;
+            margin: 0 6px;
+        }
+
+        .animated {
+            animation-duration: 1s;
+            /*动画时间*/
+            animation-fill-mode: both;
+            /*播放后的状态*/
+            animation-iteration-count: infinite;
+            /*动作循环的次数：infinite 无限循环*/
+            animation-name: updown;
+            /*动画的名称*/
+            transform-origin: center bottom;
+            /*设置动画旋转元素的基点为：居中靠下*/
+        }
+
+        .animatedbtn {
+            animation-duration: 1s;
+            /*动画时间*/
+            animation-fill-mode: both;
+            /*播放后的状态*/
+            animation-iteration-count: infinite;
+            /*动作循环的次数：infinite 无限循环*/
+            animation-name: hovermain;
+            /*动画的名称*/
+            transform-origin: center bottom;
+            /*设置动画旋转元素的基点为：居中靠下*/
+        }
+
+        .area-title {
+            position: relative;
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            font-size: 24px;
+            color: #00a5e8;
+        }
+
+        .area-title::before,
+        .area-title::after {
+            content: "";
+            border-top: 1px solid #00a5e8;
+            display: block;
+            position: absolute;
+            width: 30%;
+            top: 20px;
+        }
+
+        .area-title::after {
+            right: 0;
+        }
+
+        .runing-area {
+            /* background-color: #f7f7f7; */
+            min-height: 300px;
+            margin-left: 30px;
+            /* box-shadow: 0px 0px 20px 0 #f0f0f0; */
+            border-radius: 20px;
+        }
+
+        .runing-area .label {
+            margin-bottom: 6px;
+            color: rgb(95, 95, 95);
+        }
+
+        .runing-area td {
+            padding-bottom: 12px;
+        }
+
+        .coinicon {
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+            color: #fff;
+            line-height: 38px;
+            background-color: orange;
+            text-align: center;
+            font-size: 13px;
+        }
+        .coinicon.active{
+            border: 1px solid #00a5e8;
+            background-color: #00a5e8;
+            line-break: 36px;
+        }
+        .tr{
+            text-align: right;
+        }
+
+        @keyframes updown {
+            0%,
+            100%,
+            20%,
+            50%,
+            80% {
+                transition-timing-function: cubic-bezier(0.215, .61, .355, 1);
+                /*贝塞尔曲线 ： X1 Y1 X2 Y2*/
+                transform: translate3d(0, 0, 0);
+                /*设置只在Z轴上移动*/
+            }
+            40%,
+            43% {
+                transition-timing-function: cubic-bezier(0.755, 0.50, 0.855, 0.060);
+                transform: translate3d(0, -30px, 0);
+            }
+            70% {
+                transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+                transform: translate3d(0, -15px, 0);
+            }
+            90% {
+                transform: translate3d(0, -4px, 0);
+            }
+        }
+
+        @keyframes hovermain {
+            0% {
+                box-shadow: 0 0 20px 0 silver;
+            }
+
+            25% {
+                box-shadow: 0 0 35px 0 silver;
+            }
+
+            50% {
+                box-shadow: 0 0 50px 0 silver;
+            }
+
+            75% {
+                box-shadow: 0 0 35px 0 silver;
+            }
+
+            100% {
+                box-shadow: 0 0 20px 0 silver;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-root">
+        <div class="head-info">
+            <div class="banner">
+                <div class="blur-img banner-img" data-reactid="66">
+                    <img onload="" src="https://www.samyoc.com/uploads/users/1/images/thumbnails/1530351809848.jpg" data-reactid="67">
+                    <div id="trueimge" class="stage blur" style="background-image: url(https://www.samyoc.com/uploads/users/1/images/thumbnails/1530351809848.jpg);"
+                        data-reactid="69"></div>
+                </div>
+            </div>
+        </div>
+        <!-- <h1 class="web-title">SamYoc 量化交易</h1> -->
+        <div class="main">
+            <div class="setting flexshow align-items" style="height: 380px;">
+                <div class="center-part">
+                    <h2 class="title"> 您好！
+                        <span id="spanAccessId"></span>
+                    </h2>
+                    <div>
+                        <input id="inputSecretCode" type="password" style="margin: 55px 20px;height: 40px;font-size: 18px;width: 380px;text-align:  center;margin-top: 30px;"
+                            placeholder="请输入您的 API Secret Key" />
+                        <button id="btnEdit" style="    height: 50px;
+                        border-radius: 6px;
+                        padding: 0 16px;
+                        outline: none;
+                        background-color: #02a3e8;
+                        color: #fff;
+                        border: 0px;
+                        font-size: 20px;">修改 Secret Key</button>
+                    </div>
+                    <div style="text-align: center;color: rgb(216, 216, 216);"><a target="_blank" style="text-align: center;color: rgb(216, 216, 216);" href="http://www.samyoc.com//single/85">使用说明，遇到问题？请点击访问。</a></div>
+                </div>
+            </div>
+            <div style="position: relative;">
+                <div class="setting flexshow align-items" style="padding: 10px 0;">
+                    <div class="part" style="margin-left: 0;">
+                        <h2 class="title">交易对</h2>
+                        <div class="field">
+                            <p class="label">买卖货币
+                                <span class="sublabel"></span>
+                            </p>
+                            <div class="value">
+                                <input id="coinMain" placeholder="例如：CET" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <p class="label">定价货币
+                                <span class="sublabel"></span>
+                            </p>
+                            <div class="value">
+                                <input id="coinPrice" placeholder="例如：USDT" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="part">
+                        <h2 class="title" style="background-color: #e1819d">交易额度</h2>
+                        <div class="field">
+                            <p class="label">每笔交易额
+                                <span class="sublabel"></span>
+                            </p>
+                            <div class="value">
+                                <input type="number" id="inputMeony" placeholder="例如：50" />
+                                <span id="spanPrice1" style="margin-left: -60px">USDT</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <p class="label">最小交易额度</p>
+                            <div class="value">
+                                <input type="number" id="inputMinMoney" placeholder="例如：10" />
+                                <span id="spanPrice2" style="margin-left: -60px">USDT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="part">
+                        <h2 class="title" style="background-color: #efc673">风险控制</h2>
+                        <div class="field">
+                            <p class="label" style="line-height: 26px;">
+                                * 当挖出的数量达到限额的
+                                <input type="number" id="inputLimitMining" style="
+                            height:  20px;
+                            line-height: 16px;
+                            width: 20px;
+                        " />%时，停止挖矿。
+                            </p>
+                        </div>
+                        <div class="field" style="line-height: 26px;">
+                            <p class="label">
+                                * 每
+                                <input type="number" id="inputSellCetInter" style="
+                            height:  20px;
+                            line-height: 16px;
+                        " />秒卖出
+                                <input type="number" id="inputSellCet" style="
+                            height:  20px;
+                            line-height: 16px;
+                        " />个CET。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="width: 200px;height: 250px;margin-left: 20px;">
+                        <div class="begin-area">
+                            <div class="animated">
+                                <i class="iconfont icon-xiangxiajixu"></i>
+                            </div>
+                            <div>
+                                <button id="btnBegin" class="btn-begin animatedbtn">开始</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="stopArea" class="setting flexshow align-items hide" style="text-align: center;line-height: 100px;padding: 10px 0; background-color: rgba(0, 0, 0, 0.69);position: absolute;top: 0;width: 100%; bottom: 0;">
+                    <div id="btnStop" class="btn-begin btn-stop animatedbtn">
+                        <i class="iconfont icon-iconstop" style="font-size: 60px;"></i>
+                    </div>
+                </div>
+            </div>
+            <div style="min-height: 300px;padding: 30px;background-color: #f7f7f7;">
+                <h1 class="area-title" data-reactid="93">挖矿任务</h1>
+                <div class="runing-area flexshow align-items" style="margin: 30px;margin-bottom: 0;height: 300px;">
+                    <!-- <div style="width: 200px;height: 300px;">
+                        <div class="begin-area">
+                            <div class="animated">
+                                <i class="iconfont icon-xiangxiajixu"></i>
+                            </div>
+                            <div>
+                                <button id="btnBegin" class="btn-begin animatedbtn">开始</button>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div style="border-radius: 10px;width: 200px;padding-left: 0;box-shadow: 0px 0px 20px 0 #dcdcdc; background-color: #fff;height: 100%;min-width: 230px;">
+                        <table style="padding: 20px;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="label">当前交易对价格</div>
+                                        <div>
+                                            <span id="spanPrice">-</span>
+                                            <span style="font-size: 13px;">
+                                                <span id="spanMarketPrice">-</span>/
+                                                <span id="spanMarketMain">-</span>
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="label">当前挖矿难度</div>
+                                        <div>
+                                            <span id="spanDiff">-</span>
+                                            <span style="font-size: 13px;">CET/小时</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="label">已挖出数量</div>
+                                        <div>
+                                            <span id="spanMining">-</span>
+                                            <span style="font-size: 13px;">CET</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-bottom: 0;">
+                                        <div class="label">我的IP</div>
+                                        <div>
+                                            <span style="font-size: 12px;" id="spanMyIP">-</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="border-radius: 10px;width: 200px;margin-left: 30px;box-shadow: 0px 0px 20px 0 #dcdcdc; background-color: #fff;height: 100%;min-width: 230px;">
+                        <table style="padding: 20px; width: 100%;">
+                            <tbody id="coinBody">
+                                <tr>
+                                    <td>
+                                        <div class="label">我的钱包</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="line-height: 38px;">
+                                        <div id="coinArea" style="height: 220px;overflow-y: auto;">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="flex" style="padding-left: 30px;height: 100%;">
+                        <div style="border: 1px solid #fff;height: 100%; background-color: #000;border-radius: 10px; position: relative;">
+                            <div id="output" style="position: absolute;left: 20px;right: 20px;top: 20px;bottom: 20px; color: greenyellow;font-size: 12px;overflow: auto;overflow-x: hidden;word-wrap: break-word;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div style="    background-color: #d4d4d4;
+                    width: 1px;
+                    margin: auto 0;
+                    height: 160px;
+                    margin-left: 30px;
+                    margin-right: 30px;">
+                    </div> -->
+                </div>
+            </div>
+            <div style="padding: 30px;background-color: #212a35;padding-bottom: 50px;">
+                    <div class="pc-area" data-reactid="868">
+                        <div class="ft-container flexshow">
+                            <div class="web-info" data-reactid="870">
+                                <h1 style="color: #00a5e8;
+                                font-size: 32px;
+                                font-family: fantasy;
+                                margin: 16px 0 10px;" >Samyoc</h1>
+                                <p style="    color: #9b9b9b;
+                                font-size: 18px;
+                                margin-top: 0;
+                                font-family: PingFangSC-Light;">No end to learn, no end to creation</p>
+                                <p style="color: #f0f0f0;margin-top: 40px;font-size: 12px;">有问题或者有好的建议可以联系<a href="mailto:admin@samuyoc.com" style="color: #dcdcdc">Winter</a><p>
+                            </div>
+                            <div class="about flex" data-reactid="882" style="color:#dcdcdc;padding-top: 26px;font-weight: 300;font-size: 14px;text-align: right;line-height: 26px;">
+                                <p style="padding-bottom: 10px;">如果你觉得用的很舒服对你有帮助的话，可以请我喝杯咖啡噢😊~</p>
+                                <p><label style="color: #8ad8f7">CoinEx站内转账: </label>admin@samyoc.com</p>
+                                <p><label style="color: #8ad8f7">BTC: </label>17LB9ZCzvbGDZzYoUV2RPTX3E88y7pxthi</p>
+                                <p><label style="color: #8ad8f7">BCH: </label>17LB9ZCzvbGDZzYoUV2RPTX3E88y7pxthi</p>
+                                <p><label style="color: #8ad8f7">CET: </label>0xb3fd1d1eb70586eac7612bf74c2d267034570fac</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div id="powerDiv" style="position: fixed;
+        top: 380px;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.747);
+        z-index: 999999!important;">
+            <div style="height: 100%;width: 100%;position: relative;">
+                <button id="btnPower" class="btn-begin" style="position: absolute;top: 0;bottom: 0; left: 0;right: 0; border-radius:10px; height: 80px;width: 380px; margin:auto;">API Secret Key 设置完成</button>
+            </div>
+        </div>
+    </div>
+    <nav class="ld-nav flexshow" data-reactid="3">
+        <a class="logo" href="https://www.samyoc.com/" target="_blank" data-reactid="4"></a>
+        <a href="https://www.samyoc.com/" target="_blank" class="nav-item" data-reactid="6">首页</a>
+        <a href="https://www.samyoc.com/question" target="_blank" class="nav-item " data-reactid="7">问答</a>
+        <a href="https://www.samyoc.com/project" target="_blank" class="nav-item " data-reactid="8">API服务</a>
+        <a href="https://www.samyoc.com/trade" target="_blank" class="nav-item active" data-reactid="9">量化交易</a>
+    </nav>
+</body>
+</html>
