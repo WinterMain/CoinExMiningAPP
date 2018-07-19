@@ -9,8 +9,6 @@ An Web APP for CoinEx mining. Beaty UI, easy to operate. What you need is only a
 - **APP供爱好CoinEx者交流使用**
 - **建议在不清楚的情况下关闭API提现，用的放心**
 
--------------------
-
 ## 交易对
 
  - 买卖货币：交易的货币比如买卖CET等等（填大写）
