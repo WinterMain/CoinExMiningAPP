@@ -21,7 +21,7 @@ import {
 import http from "../network/request"
 //挖矿策略
 window.SamYoc_Trade_Setting = {
-    
+    coinPare: {}
 };
 
 window.dom = function(id) {
@@ -156,6 +156,7 @@ document.getElementById("btnPower").onclick = function () {
     localStorage.MY_SECRET_CODE = Config.secret_key;
     document.getElementById("powerDiv").style.display = "none";
     document.body.style.overflow = "auto";
+    mining_yld_samyoc.start();
 }
 
 if (localStorage.MY_SECRET_CODE) {
@@ -212,12 +213,12 @@ class PriceTradeOne {
 
         this.checkStark = new Date().getTime();
 
-        this.miningDone = false;
+        this.miningDone = true;
         this.sellCETNum = 16;
 
         this.sendEmail = false;
         this.safeDiffculty = 50;
-        this.checkDiffcultyInter = 30000;
+        this.checkDiffcultyInter = 10000;
         this.sellCETInter = 6;
         this.refreshConfigInter = 60000;
         this.stopApplication = true;
@@ -247,12 +248,34 @@ class PriceTradeOne {
 
     run() {
         window.start();
+        this.coinConfig();
+
+        if(!this.coinPare || !this.coinPare.main || !this.coinPare.price) {
+            message.err("❌ 请填写交易对");
+            return;
+        }
+
+        if(isNaN(this.tradeNum) || isNaN(this.minMoney)) {
+            message.err("❌ 请填写交易额度");
+            return;
+        }
+
+        if(isNaN(this.sellCETNum) || isNaN(this.sellCETInter) || isNaN(this.safeDiffculty)) {
+            message.err("❌ 请填写风险控制");
+            return;
+        }
+
         message.out("▶️挖矿程序开始...");
         document.getElementById("stopArea").className = document.getElementById("stopArea").className.replace(/hide/, "");
-        this.coinConfig(() => {
+
+        ticker(this.market).then(res => {
+            let current = res.data.ticker;
+            marketHelper.setCurrentPrice(current.last);
+            this.price = parseFloat(current.last);
+            this.minBuy = this.tradeNum / this.price;
+
             this.stopApplication = false;
-            this.checkMining();
-            this.takeBill();
+            this.checkMining(true);
         });
     }
 
@@ -262,28 +285,25 @@ class PriceTradeOne {
 
     // 开始执行
     start() {
-        this.coinConfig(() => {
-            Balance.reqBalance().then(() => {
-                this.sellInterCET();
-                this.refreshCoinArea();
-            }).catch(e => {
-                if (e.code === 23) {
-                    message.err(`❌ ${e.message} 请在API秘钥中添加你本机IP为白名单`);
-                } else {
-                    message.err("❌ 启动失败3秒后重启");
-                    setTimeout(() => {
-                        this.start();
-                    }, 3000);
-                }
-            });
+        this.coinConfig();
+        Balance.reqBalance().then(() => {
+            this.sellInterCET();
+            this.refreshCoinArea();
+        }).catch(e => {
+            if (e.code === 23) {
+                message.err(`❌ ${e.message} 请在API秘钥中添加你本机IP为白名单`);
+            } else {
+                message.err("❌ 启动失败3秒后重启, 请刷新重试");
+            }
         });
     }
 
     // 获取货币配置
     coinConfig(callback, isrefresh) {
-        const configItem = SamYoc_Trade_Setting;
-        this.coinPare.main = configItem.coinPare.main;
-        this.coinPare.price = configItem.coinPare.price;
+        const configItem = SamYoc_Trade_Setting || {};
+        configItem.coinPare = configItem.coinPare || {};
+        this.coinPare.main = configItem.coinPare.main || "";
+        this.coinPare.price = configItem.coinPare.price || "";
         this.market = (this.coinPare.main + this.coinPare.price).toLocaleLowerCase();
         this.tradeNum = parseFloat(configItem.tradeNum); //进行买卖  钱的数量
         this.safeDiffculty = parseFloat(configItem.safeDiffculty);
@@ -309,17 +329,6 @@ class PriceTradeOne {
         message.out(`挖矿限额：${this.safeDiffculty}%`, true);
         message.out(`CET卖出频率：${this.sellCETInter} 秒`, true);
         message.out(`CET卖出数量：${this.sellCETNum} CET`, true);
-
-        ticker(this.market).then(res => {
-            let current = res.data.ticker;
-            marketHelper.setCurrentPrice(current.last);
-            this.price = parseFloat(current.last);
-            this.minBuy = this.tradeNum / this.price;
-
-            if (callback) {
-                callback();
-            }
-        });
     }
 
     sellInterCET() {
@@ -341,7 +350,7 @@ class PriceTradeOne {
                 }
             }
         }, () => {
-            return this.sellCETInter * 1000;
+            return (this.sellCETInter || 60) * 1000;
         });
     }
 
@@ -367,14 +376,16 @@ class PriceTradeOne {
 
     refreshCoinArea() {
         let ele = document.getElementById("coinArea");
-        let str = this.createCoinStr(Object.assign(Balance.coins[this.coinPare.main], {
-            coin: this.coinPare.main
-        }), true) + this.createCoinStr(Object.assign(Balance.coins[this.coinPare.price], {
-            coin: this.coinPare.price
-        }), true) + (this.coinPare.main === "CET" || this.coinPare.price === "CET" ? "" : this.createCoinStr(Object.assign(Balance.coins["CET"], {
+        let main = this.coinPare.main || "CET";
+        let price = this.coinPare.main || "USDT";
+        let str = this.createCoinStr(Object.assign(Balance.coins[main], {
+            coin: main
+        }), true) + this.createCoinStr(Object.assign(Balance.coins[price], {
+            coin: price
+        }), true) + (main === "CET" || price === "CET" ? "" : this.createCoinStr(Object.assign(Balance.coins["CET"], {
             coin: "CET"
         }), true)) + Balance.avail().map((val => {
-            if (val.coin === this.coinPare.main || val.coin === this.coinPare.price || val.coin === "CET") {
+            if (val.coin === main || val.coin === price || val.coin === "CET") {
                 return "";
             }
             return this.createCoinStr(val);
@@ -466,14 +477,16 @@ class PriceTradeOne {
     }
 
     takeBill() {
-        let frequency = parseInt(this.frequency);
-        if (isNaN(frequency)) {
-            frequency = 0;
-        }
-
-        setTimeout(() => {
+        alwaysThread(() => {
             this.takeCore();
-        }, frequency);
+        }, () => {
+            let frequency = parseInt(this.frequency);
+            if (isNaN(frequency)) {
+                frequency = 300;
+            }
+
+            return frequency;
+        });
     }
 
     takeCore() {
@@ -482,19 +495,14 @@ class PriceTradeOne {
         }
 
         if(this.miningDone) {
-            setTimeout(()=>{
-                this.takeBill();
-            }, 10000);
             return;
         }
 
         Balance.reqBalance().then(() => {
             this.refreshCoinArea();
-            if (this.checkPriceCoin() && this.checkMainCoin()) {
-                setTimeout(() => {
-                    this.sellCET();
-                    this.takeBill();
-                }, 3000);
+            if (this.checkPriceCoin() || this.checkMainCoin()) {
+                message.out(`🈚️ ${this.market.toLocaleUpperCase()} 资金不足，请补充`);
+                this.stopApplication = true;
                 return;
             }
 
@@ -518,7 +526,6 @@ class PriceTradeOne {
 
                     if (!parseFloat(buyAmount)) {
                         message.out(`🈚️ ${this.market.toLocaleUpperCase()}余额不足`);
-                        this.takeBill();
                         return;
                     }
 
@@ -528,21 +535,16 @@ class PriceTradeOne {
                     ]).then(() => {
                         this.checkStark = new Date().getTime();
                         message.out(`.`);
-                        this.takeBill();
                     }).catch((e) => {
-                        this.takeBill();
                     });
                 }).catch((e) => {
                     message.err(`❌ ${(e||{}).message || e || "出错了，正在重试"}`);
-                    this.takeBill();
                 });
             }).catch(e => {
                 message.err(`❌ ${(e||{}).message || e || "出错了，正在重试"}`);
-                this.takeBill();
             });
         }).catch((e) => {
             message.err("❌" + ((e||{}).message || e || "出错了，正在重试"));
-            this.takeBill();
         });
     }
 
@@ -590,7 +592,7 @@ class PriceTradeOne {
     }
 
     // 检查挖矿是否正常
-    checkMining() {
+    checkMining(isJustCall) {
         if (this.checkStopApp()) {
             return;
         }
@@ -603,7 +605,7 @@ class PriceTradeOne {
 
         http.get("/v1/order/mining/difficulty", signGet(params)).then(res => {
             let difficulty = res.data;
-
+            difficulty.difficulty = 1;
             if (difficulty) {
                 if (difficulty.difficulty !=0 && parseFloat(difficulty.difficulty) * this.safeDiffculty / 100 >= parseFloat(difficulty.prediction)) {
 
@@ -631,9 +633,11 @@ class PriceTradeOne {
             message.err("❌ 获取挖矿难度失败", true);
         });
 
-        setTimeout(() => {
-            this.checkMining();
-        }, this.checkDiffcultyInter);
+        if(!isJustCall) {
+            setTimeout(() => {
+                this.checkMining();
+            }, this.checkDiffcultyInter);
+        }
     }
 
     //撤去所有订单
@@ -745,6 +749,7 @@ class PriceTradeOne {
 
 const mining_yld_samyoc = new PriceTradeOne();
 window.mining_yld_samyoc = mining_yld_samyoc;
-
+mining_yld_samyoc.takeBill();
+mining_yld_samyoc.checkMining();
 
 export default mining_yld_samyoc;
